@@ -5,10 +5,13 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // require webpack pl
 const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin'); // require webpack plugin
 
 let config = { // config object
-  entry: './src/index.js', // entry file
+  entry: {
+    output: './src/index.js', // entry file
+    bootstrap: './src/assets/stylesheets/styles.scss',
+  },
   output: { // output
     path: path.resolve(__dirname, 'public'), // ouput path
-    filename: 'output.js' // output filename
+    filename: '[name].js',
   },
   resolve: { // These options change how modules are resolved
     extensions: ['.js', '.jsx', '.json', '.scss', '.css', '.jpeg', '.jpg', '.gif', '.png'], // Automatically resolve certain extensions
